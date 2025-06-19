@@ -55,5 +55,4 @@ jobs:
           provenance: true
 
       - name: Analyze image with dive
-        run: |
-          dive --ci "${{ fromJson(steps.build.outputs.metadata)['image.name'] }}@${{ fromJson(steps.build.outputs.metadata)['containerimage.digest'] }}" | tee -a $GITHUB_STEP_SUMMARY
+        run: dive "${{ fromJson(steps.build.outputs.metadata)['image.name'] }}@${{ fromJson(steps.build.outputs.metadata)['containerimage.digest'] }}"
