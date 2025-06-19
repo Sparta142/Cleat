@@ -56,7 +56,7 @@ jobs:
 
       - name: Analyze image with dive
         run: |
-          dive --ci "${{ steps.build.outputs.digest }}" | tee -a $GITHUB_STEP_SUMMARY
+          dive --ci "${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}@${{ steps.build.outputs.digest }}" | tee -a $GITHUB_STEP_SUMMARY
         env:
           DIVE_NO_COLOR: true
           DIVE_NO_PROGRESS_BAR: true
